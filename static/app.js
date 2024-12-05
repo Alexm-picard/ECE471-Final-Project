@@ -5,10 +5,9 @@ function updateGauge(elementId, value, maxValue) {
 
     // Calculate percentage and rotation angle
     const percentage = Math.min((value / maxValue) * 100, 100);
-    const angle = (percentage / 100) * 180; // Semi-circle: 0 to 180 degrees
-	console.log(angle);
+    const angle = (percentage / 100)*180; // Semi-circle: 0 to 180 degrees
     // Update gauge rotation
-    progressElement.style.transform = `rotate(${angle - 90}deg)`; // Rotate from -90 to +90 degrees
+    progressElement.style.transform = `rotate(${angle-45}deg)`; // Rotate from -90 to +90 degrees
 
     // Update the value displayed inside the gauge
     valueElement.innerText = `${value.toFixed(1)}`;

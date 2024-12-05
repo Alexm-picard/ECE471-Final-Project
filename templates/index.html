@@ -1,9 +1,10 @@
-<!DOCTYPE html> <html lang="en"> <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor Data Dashboard</title>
-    <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script> <!-- Tailwind CSS -->
-    <style>
+<!DOCTYPE html> <html lang="en"> <head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sensor Data Dashboard</title> 
+	<script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script> 
+    <!-- Tailwind CSS --> 
+	<style>
         /* Hollow Semi-Circle Gauge Styles */
         .gauge {
             position: relative;
@@ -11,12 +12,19 @@
             height: 150px;
             margin: 0 auto;
         }
-
+	.white-box{
+		background-color: white;
+		position: relative;
+		top: 57%;
+		width: 200px;
+		height: 100px;
+		z-index: 3; !important
+	}
         .gauge .arc {
             position: absolute;
             width: 150px;
             height: 150px;
-            border: 10px solid #e5e7eb; /* Tailwind's gray-200 */
+            border: 10px solid #4f46e5; /* Tailwind's gray-200 */
             border-radius: 50%;
             clip-path: inset(0 0 50% 0); /* Show only the top half */
 	    z-index: 1;
@@ -26,16 +34,15 @@
             position: absolute;
             width: 150px;
             height: 150px;
-	    border: 10px solid transparent;
-	    border-top:10px solid #4f46e5; /* Tailwind's indigo-500 */
-            border-radius: 50%;
-            clip-path: inset(0 0 0 0); /* Show only the top half */
-            transform-origin: center bottom;
-            transform: rotate(-90 deg);
-            transition: transform 0.2s ease-in-out;
+            border: 10px solid transparent;
+	    border-top: 10px solid #e5e7eb;
+	    border-right: 10px solid #e5e7eb;
+	    border-radius: 50%;
+	    transform-origin: center middle;
+	    transform: rotate(-45deg);
+	    transition: transform 0.2s ease-in-out;
 	    z-index: 2;!important
-        }
-
+	}
         .gauge .center {
             position: absolute;
             top: 50%;
@@ -62,7 +69,9 @@
                     <div class="arc"></div>
                     <div id="voltage-progress" class="progress"></div>
                     <div id="voltage-value" class="center">Loading...</div>
-                </div>
+                    <div class="white-box"></div>
+		</div>
+		
             </div>
 
             <!-- SGP30 eCO2 -->
@@ -72,6 +81,7 @@
                     <div class="arc"></div>
                     <div id="eco2-progress" class="progress"></div>
                     <div id="eco2-value" class="center">Loading...</div>
+                    <div class="white-box"></div>
                 </div>
             </div>
 
@@ -82,6 +92,7 @@
                     <div class="arc"></div>
                     <div id="tvoc-progress" class="progress"></div>
                     <div id="tvoc-value" class="center">Loading...</div>
+                    <div class="white-box"></div>
                 </div>
             </div>
         </div>

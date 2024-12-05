@@ -1,0 +1,91 @@
+<!DOCTYPE html> <html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Dashboard</title>
+    <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script> <!-- Tailwind CSS -->
+    <style>
+        /* Hollow Semi-Circle Gauge Styles */
+        .gauge {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .gauge .arc {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 10px solid #e5e7eb; /* Tailwind's gray-200 */
+            border-radius: 50%;
+            clip-path: inset(0 0 50% 0); /* Show only the top half */
+	    z-index: 1;
+        }
+
+        .gauge .progress {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+	    border: 10px solid transparent;
+	    border-top:10px solid #4f46e5; /* Tailwind's indigo-500 */
+            border-radius 50%;
+            transform-origin: center middle;
+            //transform: rotate(0 deg);
+            transition: transform 0.2s ease-in-out;
+	    z-index: 2;!important
+        }
+
+        .gauge .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #374151; /* Tailwind's gray-700 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <!-- Page Wrapper -->
+    <div class="max-w-6xl mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-6 text-center">Sensor Data Dashboard</h1>
+
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- MiCS 5524 -->
+            <div class="p-6 bg-white shadow rounded text-center">
+                <h2 class="text-xl font-semibold mb-4">MiCS 5524 - Voltage</h2>
+                <div class="gauge">
+                    <div class="arc"></div>
+                    <div id="voltage-progress" class="progress"></div>
+                    <div id="voltage-value" class="center">Loading...</div>
+                </div>
+            </div>
+
+            <!-- SGP30 eCO2 -->
+            <div class="p-6 bg-white shadow rounded text-center">
+                <h2 class="text-xl font-semibold mb-4">SGP30 - eCO₂</h2>
+                <div class="gauge">
+                    <div class="arc"></div>
+                    <div id="eco2-progress" class="progress"></div>
+                    <div id="eco2-value" class="center">Loading...</div>
+                </div>
+            </div>
+
+            <!-- SGP30 TVOC -->
+            <div class="p-6 bg-white shadow rounded text-center">
+                <h2 class="text-xl font-semibold mb-4">SGP30 - TVOC</h2>
+                <div class="gauge">
+                    <div class="arc"></div>
+                    <div id="tvoc-progress" class="progress"></div>
+                    <div id="tvoc-value" class="center">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='app.js')}}"></script> <!-- JavaScript File -->
+</body>
+</html>

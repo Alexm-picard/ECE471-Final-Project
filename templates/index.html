@@ -8,22 +8,22 @@
         /* Hollow Semi-Circle Gauge Styles */
         .gauge {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             margin: 0 auto;
         }
 	.white-box{
 		background-color: white;
 		position: relative;
 		top: 57%;
-		width: 200px;
-		height: 100px;
+		width: 400px;
+		height: 150px;
 		z-index: 3; !important
 	}
         .gauge .arc {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             border: 10px solid #4f46e5; /* Tailwind's gray-200 */
             border-radius: 50%;
             clip-path: inset(0 0 50% 0); /* Show only the top half */
@@ -32,8 +32,8 @@
 
         .gauge .progress {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             border: 10px solid transparent;
 	    border-top: 10px solid #e5e7eb;
 	    border-right: 10px solid #e5e7eb;
@@ -76,7 +76,7 @@
 
             <!-- SGP30 eCO2 -->
             <div class="p-6 bg-white shadow rounded text-center">
-                <h2 class="text-xl font-semibold mb-4">SGP30 - eCO₂</h2>
+                <h2 class="text-xl font-semibold mb-4">SGP30 - CO₂eq</h2>
                 <div class="gauge">
                     <div class="arc"></div>
                     <div id="eco2-progress" class="progress"></div>
